@@ -2,6 +2,7 @@ var express = require("express");
 var nunjucks = require("nunjucks");
 var app = express();
 const path = require('path');
+let formidable = require('formidable');
 /* 解析请求格式 */
 var bodyParser = require('body-parser');
 app.use(bodyParser.json()); 
@@ -48,6 +49,13 @@ app.get('/',(req,res)=>{
 app.get('/about',(req,res)=>{
       res.render('about',{name:'about us'});
   });
+app.get('/order',(req,res)=>{
+    res.render('order',{titleName:'order'});
+});
+
+
+
+
 
 
 var cb0 = function (req, res, next) {
