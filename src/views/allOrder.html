@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>显示所有订单</title>
+</head>
+
+<body>
+    {% include './base/header.html' %}
+    <section class="main">
+        <h1>显示所有订单</h1>
+        <ul>
+            {% for item in AllOrder %}
+            
+            <li><a href="/order/{{ item }}" target="_blank">{{item}}</a></li>
+            {% else %}
+            <li>暂时没有订单</li>
+            {% endfor %}
+        </ul>
+    </section>
+    {% include "./base/footer.html" %}
+
+</body>
+
+</html>

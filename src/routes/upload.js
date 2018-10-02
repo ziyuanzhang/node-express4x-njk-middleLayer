@@ -45,8 +45,8 @@ var storage = multer.diskStorage({
  // });
  
  router.post('/',upload.single('logo'),function(req,res){
-     console.log('file:',req.file)
-  res.send('ok')
+     console.log('file:',req.file);
+     res.send('ok');
  })
  module.exports = router;
 

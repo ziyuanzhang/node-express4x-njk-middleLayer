@@ -3,7 +3,7 @@ var router = express.Router();
 
 
 router.get("/", function (req, res) {
-    res.download('./images/ad1.jpg');
+    res.download('../public/images/ad1.jpg');
 });
 
 

@@ -1,27 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{titleName}}</title>
+    <title>{{titleName}}</title>  
+    <style>
+        .sec1{
+            display: flex;
+            justify-content:space-around;
+        }
+        .form,.submitResults{
+            width: 350px;
+            height: 200px;
+            border: 1px solid #cdcdcd;
+            color: #000;
+            background-color: bisque;           
+        }
+        .form{
+            padding-left: 10px;
+        }
+        .submitResults{ 
+            display: flex;  
+            justify-content: center;
+            align-items: center;
+        }
+        .orderContainer{
+            margin-top: 20px;
+            }
+    </style> 
 </head>
+
 <body>
-    <section>
-        <div>
+    {% include './base/header.html' %}
+    <div class="sec1">
+        <div class="form">
             <label>
                 <p>请输入手机号：</p>
-                <input type="text">
+                <input type="number" class="userName">
             </label>
             <label>
                 <p>菜名：</p>
-                <input type="text">
+                <input type="text" class="dishName">
             </label>
             <p>
-                <button>提交</button>
+                <button class="submit">提交</button>
             </p>
-            
         </div>
-    </section>
+        <div class="submitResults"></div>
+    </div>
+    <div class="orderContainer">
+        <div>
+            <a href="/allOrder.html" target="_blank">查看订单</a>
+        </div>
+    </div>
+    {% include "./base/footer.html" %}
+    <script>
+        let btn = document.querySelector('.submit');
+        btn.addEventListener('click', function () {
+            let userName = document.querySelector('.userName');
+            let dishName = document.querySelector('.dishName');
+
+            axios.post('/api/orderStore', {
+                'userName': userName.value,
+                'dishName': dishName.value
+            }).then((res) => {
+                if (res.data == 1) {
+                    document.querySelector('.submitResults').innerHTML='储存成功';
+                    userName.value = '';
+                    dishName.value = '';
+                    console.log("orderStore:储存成功");
+                } else {
+                    document.querySelector('.submitResults').innerHTML='储存失败';
+                    console.log("orderStore：储存失败");
+                }
+            }).catch((err) => {
+                document.querySelector('.submitResults').innerHTML='提交失败';
+                console.log("orderStore：提交失败");
+            })
+
+        })
+    </script>
 </body>
+
 </html>

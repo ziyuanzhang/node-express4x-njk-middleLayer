@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单详情</title>
+</head>
+
+<body>
+    {% include './base/header.html' %}
+    <section class="main">
+        <h1>订单详情</h1>
+        {% if errer %}
+        <p>用户：{{userName}} 的订单没找到</p>
+        {% else %}
+        <p>用户：{{userName}} 购买了：{{orderDetails}}</p>
+        {% endif %}
+
+    </section>
+    {% include "./base/footer.html" %}
+
+</body>
+
+</html>

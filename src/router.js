@@ -1,26 +1,31 @@
 
 let formidable = require('formidable');
-var birds = require('./routes/birds');
-var api = require('./routes/api');
-var upload = require('./routes/upload');
-var download = require('./routes/download');
+let birds = require('./routes/birds');
+let api = require('./routes/api');
+let upload = require('./routes/upload');
+let download = require('./routes/download');
+let controllerOrder = require('./controllers/controllerOrder')
 
 router = function(app){
     app.get('/',(req,res)=>{
         res.render('index',{name:'postbird','title':'nunjucks'});
      });
-    app.get('/about',(req,res)=>{
+    app.get('/about.html',(req,res)=>{
          res.render('about',{name:'about us'});
+     });  
+     app.get('/order.html',(req,res)=>{
+        res.render('order',{titleName:'order'});
      });
-    app.get('/order',(req,res)=>{
-       res.render('order',{titleName:'order'});
-    });
-    
-    var cb0 = function (req, res, next) {
+     app.get('/allOrder.html', controllerOrder.allOrder)
+     app.get('/order/:orderDetails', controllerOrder.orderDetails)
+
+     
+
+    let cb0 = function (req, res, next) {
        console.log('CB0');
        next();
     }
-    var cb1 = function (req, res, next) {
+    let cb1 = function (req, res, next) {
        console.log('CB1');
        next();
     }
@@ -49,6 +54,7 @@ router = function(app){
     app.use('/api', api);
     app.use('/download', download);
     app.use('/upload', upload);
+    app.use('/uploads', upload);
     /* app.all("*",function(req, res){
      res.redirect(302, '/');  
     }) */
