@@ -4,7 +4,8 @@ let birds = require('./routes/birds');
 let api = require('./routes/api');
 let upload = require('./routes/upload');
 let download = require('./routes/download');
-let controllerOrder = require('./controllers/controllerOrder')
+let controllerOrder = require('./controllers/controllerOrder');
+let controllerUpload = require('./controllers/controllerUpload');
 
 router = function(app){
     app.get('/',(req,res)=>{
@@ -18,6 +19,7 @@ router = function(app){
      });
      app.get('/allOrder.html', controllerOrder.allOrder)
      app.get('/order/:orderDetails', controllerOrder.orderDetails)
+     app.post('/upload',controllerUpload.upload);
 
      
 
@@ -50,11 +52,10 @@ router = function(app){
        console.log("postHttp:",req.body);
         res.send('hellow post! ');
     });
+   
     app.use('/birds', birds);
     app.use('/api', api);
     app.use('/download', download);
-    app.use('/upload', upload);
-    app.use('/uploads', upload);
     /* app.all("*",function(req, res){
      res.redirect(302, '/');  
     }) */

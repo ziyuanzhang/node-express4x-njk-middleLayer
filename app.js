@@ -1,7 +1,6 @@
 let express = require("express");
 let nunjucks = require("nunjucks");
 let app = express();
-const path = require('path');
 let router = require('./src/router');
 
 let bodyParser = require('body-parser');
