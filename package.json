@@ -6,13 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node app.js",
-    "sup":"supervisor app.js"
+    "sup": "supervisor app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
     "formidable": "^1.2.1",
+    "morgan": "^1.9.1",
     "multer": "^1.3.1",
     "nunjucks": "^3.1.3"
   }

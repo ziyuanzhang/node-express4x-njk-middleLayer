@@ -1,8 +1,6 @@
 
-let formidable = require('formidable');
 let birds = require('./routes/birds');
 let api = require('./routes/api');
-let upload = require('./routes/upload');
 let download = require('./routes/download');
 let controllerOrder = require('./controllers/controllerOrder');
 let controllerUpload = require('./controllers/controllerUpload');

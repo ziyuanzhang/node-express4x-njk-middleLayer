@@ -2,7 +2,9 @@ let express = require("express");
 let nunjucks = require("nunjucks");
 let app = express();
 let router = require('./src/router');
+let log = require('./src/logs/log');
 
+log(app);
 let bodyParser = require('body-parser');
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -26,6 +28,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
         next();
     }
 }); */
+
+
 app.use('/static', express.static(__dirname + '/src/public'));
 //路径：http://localhost:3000/static/images/ad1.jpg
 
