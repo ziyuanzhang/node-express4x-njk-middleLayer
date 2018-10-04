@@ -54,9 +54,10 @@ router = function(app){
     app.use('/birds', birds);
     app.use('/api', api);
     app.use('/download', download);
-    /* app.all("*",function(req, res){
-     res.redirect(302, '/');  
-    }) */
+    app.all("*",function(req, res){
+      // res.redirect(302, '/'); 
+      res.render('errorPage/404'); 
+    }) 
 }
 
 module.exports = router;
