@@ -2,7 +2,7 @@
 //https://www.npmjs.com/package/formidable  上传文件用插件
 let formidable = require('formidable');
 let customizeUtil = require('../middleware/customizeUtil')
-const targetFile = './upload';
+const targetFile = './src/public/upload';
 
 exports.saveUploadData= function(req,callback){
     var form = new formidable.IncomingForm();
