@@ -35,7 +35,7 @@ app.use('/static', express.static(__dirname + '/src/public'));
 
 /*  njk 渲染模板引用*/
 app.set("view engine", "html");
-nunjucks.configure('./src/views/', {
+nunjucks.configure('./src/views', {
     autoescape: true,
     express: app
 });
