@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>首页</title>
     <style>
-    form label{display: block;margin: 5px 0;}
+        form label{display: block;margin: 5px 0;}
     </style>
 </head>
 
@@ -16,23 +16,25 @@
     <section class="main">
         <h1>姓名：{{ name }}</h1>
         <p>使用的模板引擎是：{{ title }}</p>
-        <button class="getClick">get 请求</button>
-        <div class="getshow">get结果显示处</div>
-        <button class="postClick">post 请求</button>
-        <div class="postshow">postt结果显示处</div>
+        <div>
+            <button class="getClick">get 请求</button>
+            <div class="getshow">get结果显示处</div>
+            <button class="postClick">post 请求</button>
+            <div class="postshow">postt结果显示处</div>
+        </div>
         <hr />
         <form action="/upload" method="post" enctype="multipart/form-data">
             <label> 姓名: <input type="text" name="name"> </label>
-           
+
             <label> 电话: <input type="text" name="tel"> </label>
-           
+
             <label> 地址: <input type="text" name="address"> </label>
-           
-            <label> 照片: <input type="file" name="logo"></label> 
-           
-            <label> 多文件上传：<input type="file" name="img" multiple="multiple"></label> 
-           
-            <label><input type="submit" value="提交"> </label>         
+
+            <label> 照片: <input type="file" name="logo"></label>
+
+            <label> 多文件上传：<input type="file" name="img" multiple="multiple"></label>
+
+            <label><input type="submit" value="提交"> </label>
         </form>
 
         <script>

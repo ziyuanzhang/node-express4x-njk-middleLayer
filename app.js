@@ -4,7 +4,7 @@ let app = express();
 let router = require('./src/router');
 let log = require('./src/logs/log');
 
-log(app);
+
 let bodyParser = require('body-parser');
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
@@ -40,7 +40,7 @@ nunjucks.configure('./src/views', {
     express: app
 });
 /* end  njk 渲染模板引用*/
-
+log(app);
 router(app);
 app.listen(process.env.PORT ||3000, function () {
     console.log("http://localhost:3000/");
