@@ -12,7 +12,7 @@ let log = function (app) {
         }
     }))
     // create a write stream (in append mode)
-    var accessLogStream = fs.createWriteStream(path.join(__dirname, '/logsData/access.log'), {
+    var accessLogStream = fs.createWriteStream('./src/logs/logsData/access.log', {
         flags: 'a'
     })
 
